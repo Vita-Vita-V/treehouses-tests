@@ -17,35 +17,33 @@ def page(browser):
     page.close()
 
 def test_page_loads(page):
-    assert page.title() != "", "Stránka by měla mít titulek"
+    assert page.title() != ""
 
 
 def test_main_heading(page):
     heading = page.locator("h1")
-    assert heading.is_visible(), "Hlavní nadpis by měl být viditelný"
+    assert heading.is_visible()
 
 
 
 def test_main_heading(page):
     heading = page.get_by_role("heading", name="Spát v korunách stromů – snít v Tree Houses")
-    assert heading.is_visible(), "Hlavní nadpis by měl být viditelný"
+    assert heading.is_visible()
 
 def test_contact_info(page):
     contact_section = page.locator("footer").locator("text=Kontakt")
-    assert contact_section.is_visible(), "Sekce s kontaktními informacemi by měla být viditelná"
+    assert contact_section.is_visible()
 
     def test_navigation_menu(page):
         menu = page.locator("nav")
-        assert menu.is_visible(), "Navigační menu by mělo být viditelné"
+        assert menu.is_visible()
 
 def test_footer_exists(page):
-    """Test ověřuje, že patička stránky je viditelná."""
     footer = page.locator("footer")
-    assert footer.is_visible(), "Patička stránky by měla být viditelná"
+    assert footer.is_visible()
 
 
 def test_social_media_links(page):
-    """Test ověřuje, že na stránce jsou odkazy na sociální sítě."""
     social_links = page.locator("footer").locator("a[href*='facebook'], a[href*='instagram']")
-    assert social_links.count() > 0, "Na stránce by měly být odkazy na sociální sítě"
+    assert social_links.count() > 0
 
