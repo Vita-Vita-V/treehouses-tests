@@ -38,4 +38,14 @@ def test_contact_info(page):
         menu = page.locator("nav")
         assert menu.is_visible(), "Navigační menu by mělo být viditelné"
 
+def test_footer_exists(page):
+    """Test ověřuje, že patička stránky je viditelná."""
+    footer = page.locator("footer")
+    assert footer.is_visible(), "Patička stránky by měla být viditelná"
+
+
+def test_social_media_links(page):
+    """Test ověřuje, že na stránce jsou odkazy na sociální sítě."""
+    social_links = page.locator("footer").locator("a[href*='facebook'], a[href*='instagram']")
+    assert social_links.count() > 0, "Na stránce by měly být odkazy na sociální sítě"
 
